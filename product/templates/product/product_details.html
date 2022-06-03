@@ -1,0 +1,18 @@
+<a href="{% url 'products:product_list' %}"> Go Back</a>
+
+<h1>---------------------------------------------------------------------</h1>
+
+<h1>Product Details:</h1>
+
+<h4>*Was Published By : {{ product.owner }}</h4>
+
+<h2>*{{ product }}</h2>
+<p><h3>*{{ product.description }}</h3></p>
+{% if request.user in product.like.all %}
+
+<a href="{% url 'products:like_dislike' product.slug %}"> DisLike</a>
+
+{% else %}
+<a href="{% url 'products:like_dislike' product.slug %}"> Like</a>
+
+{% endif %}
